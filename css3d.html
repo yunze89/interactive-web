@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+      .world{
+          /*중앙정렬*/
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          width: 80vw;
+          height: 80vh;
+          background: #fff000;
+          /*perspective: 500px;*/  /*원근감 부여. 내 눈 앞에서의 거리*/
+      }
+      .card {
+        /*중앙정렬*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100px;
+        height: 150px;
+        margin: 1em;
+
+        border-radius: 0.5em;  /*element의 font-size에 따라 변한다. 즉 1.5rem 크기의 0.5배 크기*/
+        font-size: 1.5rem;     /*root html의 font-size 기준으로*/
+        background: red;
+        /*transform: rotateY(45deg);*/  /*원근감을 부여해야 3D 처럼 보인다.(perspective)*/
+        transform: perspective(500px) rotateY(45deg);  /*원근감을 부여해야 3D 처럼 보인다.(perspective)*/
+      }
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <div class="world">
+      <div class="card">CARD</div>
+      <div class="card">CARD</div>
+      <div class="card">CARD</div>
+    </div>
+  </body>
+</html>
