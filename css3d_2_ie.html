@@ -18,11 +18,9 @@
         /*두개의 카드가 포개질 부모 기준이 되도록*/
         position: relative;
 
-        width: 100px;
-        height: 150px;
+
         margin: 1em;
 
-        transition: 1s;
         /*transform: rotateY(0deg);*/  /*!!성능상 해주는게 좋다. 브라우저가 준비를 하므로!!*/
 
         transform-style: preserve-3d;  /*!!부모 element로써 아래 자식들에게도 3d 효과가 적용되기 위해 속성을 줘야한다.!! IE에선 지원 X*/
@@ -36,41 +34,40 @@
 
         /*포개 지도록*/
         position: absolute;
-        left: 0;
-        top: 0;
+        left: 50%;
+        top: 50%;
 
-        width: 100%;
-        height: 100%;
+        width: 100px;
+        height: 150px;
+        margin: -75px 0 0 -50px;
 
         border-radius: 0.5em;  /*element의 font-size에 따라 변한다. 즉 1.5rem 크기의 0.5배 크기*/
         font-size: 1.5rem;     /*root html의 font-size 기준으로*/
-
-        -webkit-backface-visibility: hidden;; /*safari를 위해 webkit 접두어 필요*/
-        -moz-backface-visibility: hidden;;    /*firefox를 위해 webkit 접두어 필요*/
-        -o-backface-visibility: hidden;;      /*opera를 위해 webkit 접두어 필요*/
-        /*마지막에 표준을 사용하는 것이 좋다.*/
-        backface-visibility: hidden;;  /*!!3d로 돌렸을 떄 앞을 바라보고 있는 element의 뒷면이 보이지 않도록 설정!!*/
+        backface-visibility: hidden;  /*!!3d로 돌렸을 떄 앞을 바라보고 있는 element의 뒷면이 보이지 않도록 설정*/
+        transition: 1s;
       }
       .card-side-front{
         z-index: 1;
-        background: white
+        background: white;
       }
       .card-side-back{
         background: red;
         transform: rotateY(180deg);  /*!!뒷면은 default로 뒤를 바라보고 있어야 하므로 한바퀴 돌려놔야한다.!!*/
       }
-      .world:hover .card{
+      .world:hover .card-side-front{
         transform: rotateY(180deg);
       }
+      .world:hover .card-side-back{
+        transform: rotateY(360deg);
+      }
+
     </style>
     <title></title>
   </head>
   <body>
     <div class="world">
-      <div class="card">
         <div class="card-side card-side-front">F</div>
         <div class="card-side card-side-back">B</div>
-      </div>
     </div>
   </body>
 </html>
