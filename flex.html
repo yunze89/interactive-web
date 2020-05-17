@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 부모 */
+        .container{
+            display: flex;  /*기본 : 가로로 배치가 되며 높이가 자동으로 늘어남*/
+            /*flex-direction: column;*/ /*default: row; - 축의 방향(꼬치)이라고 이해해야함.*/
+            /*justify-content: center;*/  /*default: flex-start; - 축 방향(꼬치)에서 정렬하는 속성 - center, space-between(균일한 여백), space-around(첫요소부터 균일한 여백*/
+            /*align-items: center;*/ /*default: stretch; - 꼬치의 수직방향의 정렬 - center, flex-start*/
+            height: 80vh;
+            background: gray;
+        }
+        .item{
+            flex-grow: 1;   /*각 contents의 너비를 제외한 여백의 비율이다. 숫자가 들어가면 늘어남*/
+            flex-basis: 0;  /*각 flex box가 content의 너비도 포함해서 균일한 너비를 가지게 해주기 위해서. default: auto*/
+            flex: 1;        /*위의 설정을 축약형으로! flex-basis:0이 기본으로 된다.*/
+            padding: 2em;
+            border: 3px solid black;
+            background: white;
+        }
+        /* .item:nth-child(1){
+            flex-grow:1;
+        }
+        .item:nth-child(2){
+            flex-grow:5;
+        }
+        .item:nth-child(3){
+            flex-grow:2;
+        }
+        .item:nth-child(4){
+            flex-grow:3;
+        }
+        .item:nth-child(5){
+            flex-grow:1;
+        } */
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">AAA</div>
+        <div class="item">B</div>
+        <div class="item">CCCCCC</div>
+        <div class="item">DDD</div>
+        <div class="item">E</div>
+    </div>
+</body>
+</html>
+
